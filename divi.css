@@ -1,0 +1,149 @@
+body {
+  font-size: 16px;
+  font-family: "Roboto", serif;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+main {
+  display: flex;
+  flex-direction: column;  /* 縦方向に並べる */
+  align-items: center;      /* 中央寄せ */
+  justify-content: center;  /* 垂直方向も中央に */
+  min-height: 100vh;        /* 画面の高さいっぱいにする */
+  max-width: 1024px;        /* 最大幅を指定 */
+  margin: 0 auto;           /* 左右の中央寄せ */
+  padding: 20px;            /* 余白を追加 */
+  box-sizing: border-box;
+}
+
+header {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  background-color: #8DC7E0;
+}
+
+.header-title {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 32px;
+  color: #fff;
+}
+
+.group-name {
+  text-align: center;
+}
+
+.split-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #8DC7E0;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #67a7c0;
+}
+
+#recipient-list label {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+#recipient-list input {
+  width: auto;
+  margin-right: 10px;
+}
+
+#shareable-link {
+  background-color: #eaeaea;
+  text-align: center;
+}
+
+#copy-btn {
+  width: auto;
+  margin-left: 10px;
+}
+
+#result-list {
+  list-style: none;
+  padding: 0;
+}
+
+#result-list li {
+  background: #e0f7fa;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+/* ===== レスポンシブ対応 ===== */
+
+/* 🌟 スマホ (320px ~ 480px) */
+@media (max-width: 480px) {
+  .split-container {
+    width: 100%; /* スマホではフル幅 */
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 28px; /* ヘッダーのタイトルを小さく */
+  }
+
+  input, select, button {
+    font-size: 14px;
+  }
+
+  .share-buttons {
+    flex-direction: column; /* スマホでは縦並び */
+  }
+}
+
+/* 🌟 タブレット (481px ~ 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .split-container {
+    width: 80%; /* 画面の80%の幅に */
+    max-width: 500px;
+  }
+}
+
+/* 🌟 PC向け (769px ~ 1024px) */
+@media (min-width: 769px) {
+  .split-container {
+    width: 60%; /* 画面の60%の幅に */
+    max-width: 600px;
+  }
+}

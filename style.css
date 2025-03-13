@@ -1,0 +1,308 @@
+body {
+  font-size: 16px;
+  font-family: "Roboto", serif;
+  max-width: 1024px;
+  margin: 0 auto; /* 中央寄せ */
+}
+
+header {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  background-color: #8DC7E0;
+}
+
+.header-title {
+  text-align: center;
+}
+
+.title {
+  font-size: 32px;
+  color: #fff;
+}
+
+.catch-copy {
+  padding-top: 19px;
+  color: #fff;
+  font-size: 60px;
+}
+
+.sub-catch-copy {
+  color: #fff;
+  font-size: 18px;
+}
+
+.header_button {
+  margin-top: 10px;
+ display: inline-block;
+ width: 100%;
+ box-sizing: border-box;
+ color: #fff;
+ border: 2px solid #fff;
+ border-radius: 100px;
+ padding: 1em 2em;
+ font-weight: bold;
+ text-decoration: none;
+ text-align: center;
+ transition: 0.3s;
+}
+
+.header_button:hover {
+  color: #8DC7E0;
+  background: #fff;
+}
+
+.header_image img {
+  width: 90%; /* 親要素の幅に合わせて画像を拡大/縮小 */
+  height: auto; /* 高さは自動で調整 */
+}
+
+/* Button Function */
+.function {
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #8DC7E0;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* スライドイン時 */
+.function.show {
+  display: block; /* 表示させる */
+  transform: translateY(0); /* スライドイン */
+}
+
+.form-name,
+.form-member {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.form-member_input {
+  display: flex;
+  gap: 10px;
+}
+
+.add-btn,
+.remove-btn {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.add-btn {
+  background: #8DC7E0;
+  color: #fff;
+}
+
+.add-btn:hover {
+  background: #67a7c0;
+}
+
+.remove-btn {
+  background: #d9534f;
+  color: #fff;
+}
+
+.remove-btn:hover {
+  background: #c9302c;
+}
+
+.creating-group {
+  margin-top: 10px;
+ display: inline-block;
+ width: 100%;
+ box-sizing: border-box;
+ color: #8DC7E0;
+ border: 2px solid #8DC7E0;
+ background-color: #fff;
+ border-radius: 100px;
+ padding: 1em 2em;
+ font-weight: bold;
+ text-decoration: none;
+ text-align: center;
+ transition: 0.3s;
+ cursor: pointer;
+}
+
+.creating-group:hover {
+  color: #fff;
+  background: #8DC7E0;
+}
+
+/* service-explain */
+.service-explain {
+  margin-top: 50px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-bottom: 50px;
+}
+
+.service-explain1_image img {
+  width: 40%;
+  height: auto;
+}
+
+.service-explain1_title {
+  font-size: 24px;
+}
+
+service-explain1_sentence {
+  font-size: 18px;
+}
+
+.service-explain2_image img {
+  width: 40%;
+  height: auto;
+}
+
+.service-explain2_title {
+  font-size: 24px;
+}
+
+service-explain2_sentence {
+  font-size: 18px;
+}
+
+.service-explain3_image img {
+  width: 40%;
+  height: auto;
+}
+
+.service-explain3_title {
+  font-size: 24px;
+}
+
+service-explain3_sentence {
+  font-size: 18px;
+}
+
+
+/* return-to-the-top */
+.return-to-the-top {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-right: 15px;
+  padding-left: 15px;
+  background-color: #8DC7E0;
+}
+
+
+.start_button {
+ margin-top: 10px;
+ display: inline-block;
+ width: 100%;
+ box-sizing: border-box;
+ color: #fff;
+ border: 2px solid #fff;
+ border-radius: 100px;
+ padding: 1em 2em;
+ font-weight: bold;
+ text-decoration: none;
+ text-align: center;
+ transition: 0.3s;
+}
+
+.start_button:hover {
+  color: #8DC7E0;
+  background: #fff;
+}
+
+/* footer */
+.footer {
+  background-color: #0F0140;
+  color: #fff;
+  padding-top: 20px;
+}
+
+.footer-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.footer_decorastion {
+  color: #fff;
+}
+
+small {
+  padding-top: 20px;
+  display: block;
+  text-align: center;
+}
+
+/* ===== メディアクエリでレスポンシブ対応 ===== */
+
+/* 🌟 スマホ (320px ~ 480px) */
+@media (max-width: 480px) {
+  .catch-copy {
+    font-size: 32px; /* キャッチコピーを小さく */
+  }
+
+  .sub-catch-copy {
+    font-size: 14px;
+  }
+
+  .function {
+    width: 100%; /* 小さい画面ではフル幅に */
+    padding: 15px;
+  }
+}
+
+/* 🌟 タブレット (481px ~ 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .catch-copy {
+    font-size: 45px;
+  }
+
+  .sub-catch-copy {
+    font-size: 16px;
+  }
+
+  .function {
+    width: 80%; /* 画面の80%の幅に */
+    max-width: 500px;
+  }
+}
+
+/* 🌟 PC向け (769px ~ 1024px) */
+@media (min-width: 769px) {
+  .function {
+    width: 60%; /* 画面の60%の幅に */
+    max-width: 500px;
+  }
+}
+
+/* 🌟 画像のレスポンシブ調整 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* 中央配置 */
+}

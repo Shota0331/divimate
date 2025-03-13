@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DiviMate</title>
+  
+  <meta name=”robots” content=”noindex”>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./divi.css">
+</head>
+<body>
+  <header>
+    <h1 class="header-title"><a  class="title" href="index.html" style="text-decoration:none;">DiviMate</a></h1>
+  </header>
+
+  <main>
+    <h2 id="group-title"></h2>
+    
+    <div class="split-container">
+      <div id="transaction-form">
+        <h2 class="group-name" id="group-name"></h2>
+        <label for="payer">Payer:</label>
+        <select id="payer"></select>
+
+        <label for="recipient">Recipient(s):</label>
+        <div id="recipient-list"></div>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" placeholder="Enter amount" required>
+
+        <label for="currency">Currency:</label>
+        <select id="currency">
+            <option value="EUR">€ EUR</option>
+            <option value="USD">$ USD</option>
+            <option value="GBP">£ GBP</option>
+            <option value="JPY">¥ JPY</option>
+        </select>
+
+        <label for="purpose">Purpose:</label>
+        <select id="purpose">
+          <option value="">Select a purpose...</option>
+          <option value="Taxi">Taxi</option>
+          <option value="Dinner">Dinner</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Other">Other (please specify)</option>
+        </select>
+        <input type="text" id="custom-purpose" placeholder="Enter custom purpose" style="display: none;">
+        <!-- <input type="text" id="purpose" placeholder="E.g. Taxi, Dinner" required> -->
+
+        <label for="transaction-date">Date:</label>
+        <input type="date" id="transaction-date" required>
+      </div>
+
+      <!-- <button id="calculate-btn">Calculate</button> -->
+      <ul id="result-list"></ul>
+      <ul id="summary-list"></ul>
+
+      <button id="add-transaction-btn">Add Transaction</button>
+
+      <!-- グループの URL 表示欄 -->
+      <div id="shareable-url-container" style="margin-top: 20px;">
+          <label for="shareable-link">Shareable Link:</label>
+          <input type="text" id="shareable-link" readonly>
+          <button id="copy-btn">Copy</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="./divi.js"></script>
+</body>
+</html>
