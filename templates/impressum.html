@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum - DiviMate</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <header>
+    <h1 class="header-title"><a class="title" href="{{ url_for('home') }}" style="text-decoration:none;">DiviMate</a>
+    </h1>
+  </header>
+
+  <main class="legal-content">
+    <h1>Impressum</h1>
+
+    <section>
+      <h2>Information according to § 5 TMG</h2>
+      <p>
+        DiviMate<br>
+        Sample Street 123<br>
+        12345 Sample City<br>
+        Germany
+      </p>
+
+      <h3>Contact</h3>
+      <p>
+        Email: contact@divimate.com<br>
+        Phone: +49 123 4567890
+      </p>
+    </section>
+
+    <section>
+      <h2>Responsible for content</h2>
+      <p>
+        DiviMate Team<br>
+        Sample Street 123<br>
+        12345 Sample City<br>
+        Germany
+      </p>
+    </section>
+
+    <section>
+      <h2>Disclaimer</h2>
+      <h3>Liability for content</h3>
+      <p>
+        As a service provider, we are responsible for our own content on these pages according to § 7 para.1 TMG and
+        general laws. According to §§ 8 to 10 TMG, we are not obligated to monitor transmitted or stored information
+        from third parties or to investigate circumstances that indicate illegal activity.
+      </p>
+
+      <h3>Liability for links</h3>
+      <p>
+        Our offer contains links to external websites of third parties, on whose contents we have no influence.
+        Therefore, we cannot assume any liability for these external contents. The respective provider or operator of
+        the pages is always responsible for the content of the linked pages.
+      </p>
+    </section>
+  </main>
+
+  <div class="footer">
+    <div class="footer-list">
+      <a href="{{ url_for('impressum') }}" class="footer_decorastion" style="text-decoration: none;">Impressum</a>
+      <a href="{{ url_for('privacy') }}" class="footer_decorastion"
+        style="text-decoration: none;">Datenschutzerklärung</a>
+    </div>
+    <small>©DiviMate</small>
+  </div>
+
+  <style>
+    .legal-content {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .legal-content h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .legal-content h2 {
+      color: #555;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .legal-content h3 {
+      color: #666;
+      margin-top: 20px;
+    }
+
+    .legal-content p {
+      margin-bottom: 15px;
+    }
+
+    .legal-content section {
+      margin-bottom: 40px;
+    }
+  </style>
+</body>
+
+</html>

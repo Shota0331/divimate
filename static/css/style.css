@@ -134,6 +134,28 @@ input {
   background: #c9302c;
 }
 
+.add-member-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.add-member-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 100%;
+}
+
+.add-member-btn:hover {
+  background: #3d8b40;
+}
+
 .creating-group {
   margin-top: 10px;
  display: inline-block;

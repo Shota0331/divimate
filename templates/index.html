@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DiviMate</title>
+  <meta name="description" content="Easy expense splitting app">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+  <header>
+    <h1 class="header-title"><a class="title" href="{{ url_for('home') }}" style="text-decoration:none;">DiviMate</a>
+    </h1>
+    <h1 class="catch-copy">"Easy splitting, anytime, anywhere."</h1>
+    <p class="sub-catch-copy">DiviMate is free to download and super easy to use! <br />It's an app that lets you
+      split payments with your friends and colleagues in a flash. <br />Whether you're travelling, eating out or
+      attending an event, you can split the bill in a jiffy!</p>
+
+    <div class="function" id="function">
+      {% if error %}
+      <div class="error-message">
+        {{ error }}
+      </div>
+      {% endif %}
+
+      <form action="{{ url_for('create_group') }}" method="POST" id="group-form">
+        <div class="form-name">
+          <label for="name">Group Name</label>
+          <div class="form-name_input">
+            <input id="name" name="group_name" type="text" placeholder="E.g. Roadtrip" required>
+          </div>
+        </div>
+        <div id="member-list">
+          <div class="form-member">
+            <label for="member-1">Member</label>
+            <div class="form-member_input">
+              <input id="member-1" name="members[]" type="text" placeholder="Enter name" required>
+              <button type="button" class="remove-btn" id="remove-member-btn-1">Delete</button>
+            </div>
+          </div>
+        </div>
+        <div class="add-member-container">
+          <button type="button" id="add-member-btn" class="add-member-btn">Add Member</button>
+        </div>
+        <button type="submit" id="save-group-btn" class="creating-group">Create Group</button>
+      </form>
+    </div>
+
+    <div class="header_image"><img src="{{ url_for('static', filename='img/432.png') }}" alt="Group splitting"></div>
+  </header>
+
+  <section class="service-explain">
+    <div class="service-explain1">
+      <div class="service-explain1_image"><img src="{{ url_for('static', filename='img/start.png') }}"
+          alt="Quick start"></div>
+      <h3 class="service-explain1_title">You don't need to sign up, it's really easy to get started.</h3>
+      <p class="service-explain1_sentence">You don't need to install any apps, and there's no sign-up either. You
+        can start using it straight away in your browser. You don't need to get your friends to install the app
+        to split the bill with you.</p>
+    </div>
+
+    <div class="service-explain2">
+      <div class="service-explain2_image"><img src="{{ url_for('static', filename='img/calculator.png') }}"
+          alt="Smart calculation"></div>
+      <h3 class="service-explain2_title">It'll work out the simplest way to split for you straight away.</h3>
+      <p class="service-explain2_sentence">Just enter the amounts you've paid on the group page, and our unique
+        algorithm will work out the most straightforward and efficient way to settle the balance in real time.
+      </p>
+    </div>
+
+    <div class="service-explain3">
+      <div class="service-explain3_image"><img src="{{ url_for('static', filename='img/share.png') }}"
+          alt="Easy sharing"></div>
+      <h3 class="service-explain3_title">You can share info with your mates.</h3>
+      <p class="service-explain3_sentence">Home parties
+        You can share the info you create with your mates via an automatically generated link. Of course, your
+        mates can use it straight away, without having to register.
+      </p>
+    </div>
+  </section>
+
+  <section class="how-to-use">
+  </section>
+
+  <section class="return-to-the-top">
+    <a href="#function" class="start_button">Return to the top and START</a>
+  </section>
+
+  <div class="footer">
+    <div class="footer-list">
+      <a href="{{ url_for('impressum') }}" class="footer_decorastion" style="text-decoration: none;">Impressum</a>
+      <a href="{{ url_for('privacy') }}" class="footer_decorastion"
+        style="text-decoration: none;">Datenschutzerklärung</a>
+    </div>
+    <small>©DiviMate</small>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const memberList = document.getElementById('member-list');
+
+      // メンバー要素の作成関数
+      const createMemberElement = (id) => {
+        const div = document.createElement('div');
+        div.className = 'form-member';
+        div.innerHTML = `
+          <label for="member-${id}">Member</label>
+          <div class="form-member_input">
+            <input id="member-${id}" name="members[]" type="text" placeholder="Enter name" required>
+            <button type="button" class="remove-btn" id="remove-member-btn-${id}">Delete</button>
+          </div>
+        `;
+
+        // 削除ボタンのイベント設定
+        const removeBtn = div.querySelector('.remove-btn');
+        removeBtn.onclick = () => {
+          if (memberList.children.length > 1) {
+            div.remove();
+            // メンバーIDを再調整
+            Array.from(memberList.children).forEach((item, index) => {
+              const label = item.querySelector('label');
+              const input = item.querySelector('input');
+              const button = item.querySelector('.remove-btn');
+
+              label.setAttribute('for', `member-${index + 1}`);
+              input.id = `member-${index + 1}`;
+              button.id = `remove-member-btn-${index + 1}`;
+            });
+          } else {
+            alert('少なくとも1人のメンバーが必要です');
+          }
+        };
+
+        return div;
+      };
+
+      // 名前の重複をチェックする関数
+      function checkDuplicateNames() {
+        const inputs = document.querySelectorAll('input[name="members[]"]');
+        const members = Array.from(inputs).map(input => input.value.trim()).filter(name => name !== '');
+
+        // 重複をチェック
+        const duplicates = members.filter((name, index) => members.indexOf(name) !== index);
+
+        // 重複している名前に警告スタイルを適用
+        inputs.forEach(input => {
+          const name = input.value.trim();
+          if (name !== '' && duplicates.includes(name)) {
+            input.style.borderColor = 'red';
+            input.title = '同じ名前のメンバーがすでに存在します';
+          } else {
+            input.style.borderColor = '';
+            input.title = '';
+          }
+        });
+      }
+
+      // すべての削除ボタンにスタイルとイベントを追加
+      const setupInitialRemoveButtons = () => {
+        const removeButtons = document.querySelectorAll('.remove-btn');
+        removeButtons.forEach(btn => {
+          // イベント追加（既存のイベントをクリア）
+          btn.onclick = () => {
+            const memberDiv = btn.closest('.form-member');
+            if (memberList.children.length > 1) {
+              memberDiv.remove();
+              // メンバーIDを再調整
+              Array.from(memberList.children).forEach((item, index) => {
+                const label = item.querySelector('label');
+                const input = item.querySelector('input');
+                const button = item.querySelector('.remove-btn');
+
+                label.setAttribute('for', `member-${index + 1}`);
+                input.id = `member-${index + 1}`;
+                button.id = `remove-member-btn-${index + 1}`;
+              });
+            } else {
+              alert('少なくとも1人のメンバーが必要です');
+            }
+          };
+        });
+
+        // 初期入力欄に重複チェックイベントを追加
+        const initialInputs = document.querySelectorAll('input[name="members[]"]');
+        initialInputs.forEach(input => {
+          input.addEventListener('blur', checkDuplicateNames);
+        });
+      };
+
+      // フォーム送信前に重複チェックを行う
+      document.getElementById('group-form').onsubmit = function (e) {
+        const inputs = document.querySelectorAll('input[name="members[]"]');
+        const members = Array.from(inputs).map(input => input.value.trim());
+
+        // 重複チェック
+        const uniqueMembers = new Set(members);
+        if (uniqueMembers.size !== members.length) {
+          e.preventDefault(); // フォーム送信をキャンセル
+          alert('同じ名前のメンバーが複数登録されています。メンバー名はそれぞれ異なる名前にしてください。');
+          return false;
+        }
+        return true;
+      };
+
+      // 「追加」ボタンのイベント設定
+      const addMemberBtn = document.getElementById('add-member-btn');
+      addMemberBtn.onclick = () => {
+        const newMember = createMemberElement(memberList.children.length + 1);
+        memberList.appendChild(newMember);
+      };
+
+      // 初期化
+      setupInitialRemoveButtons();
+    });
+  </script>
+</body>
+
+</html>

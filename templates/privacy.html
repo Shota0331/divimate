@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - DiviMate</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1 class="header-title"><a class="title" href="{{ url_for('home') }}"
+                style="text-decoration:none;">DiviMate</a></h1>
+    </header>
+
+    <main class="legal-content">
+        <h1>Datenschutzerklärung (Privacy Policy)</h1>
+
+        <section>
+            <h2>1. Overview</h2>
+            <p>
+                This Privacy Policy explains how DiviMate ("we", "us", "our") collects, uses, and shares your personal
+                information when you use our expense splitting app. We respect your privacy and are committed to
+                protecting your personal data.
+            </p>
+        </section>
+
+        <section>
+            <h2>2. Data We Collect</h2>
+            <p>We collect the following types of information:</p>
+            <ul>
+                <li>Group names and member names you provide</li>
+                <li>Transaction details (amounts, purposes, dates)</li>
+                <li>Device information and usage data</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. How We Use Your Data</h2>
+            <p>We use your data to:</p>
+            <ul>
+                <li>Provide and maintain our service</li>
+                <li>Calculate expense splits</li>
+                <li>Generate shareable links for group expenses</li>
+                <li>Improve and develop our service</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. Data Storage</h2>
+            <p>
+                Most data is stored locally in your browser using localStorage. Transaction data is stored in our
+                database to enable sharing between users. We retain this data for up to 6 months after the last activity
+                in a group.
+            </p>
+        </section>
+
+        <section>
+            <h2>5. Data Sharing</h2>
+            <p>
+                We do not sell your personal information. We share your data only:
+            </p>
+            <ul>
+                <li>With other members of your expense group (only the data relevant to that group)</li>
+                <li>With service providers who help us operate our service</li>
+                <li>If required by law</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Your Rights</h2>
+            <p>
+                Depending on your location, you may have rights regarding your personal data, including:
+            </p>
+            <ul>
+                <li>Right to access your data</li>
+                <li>Right to correction of inaccurate data</li>
+                <li>Right to deletion of your data</li>
+                <li>Right to restrict processing</li>
+            </ul>
+            <p>
+                To exercise these rights, please contact us at privacy@divimate.com.
+            </p>
+        </section>
+
+        <section>
+            <h2>7. Cookies and Similar Technologies</h2>
+            <p>
+                Our app uses only essential technical storage (localStorage) to function properly. We do not use
+                tracking cookies.
+            </p>
+        </section>
+
+        <section>
+            <h2>8. Changes to This Policy</h2>
+            <p>
+                We may update this privacy policy from time to time. We will notify you of any changes by posting the
+                new policy on this page.
+            </p>
+        </section>
+
+        <section>
+            <h2>9. Contact Us</h2>
+            <p>
+                If you have any questions about this privacy policy, please contact us at:
+            </p>
+            <p>
+                Email: privacy@divimate.com<br>
+                Address: DiviMate, Sample Street 123, 12345 Sample City, Germany
+            </p>
+        </section>
+    </main>
+
+    <div class="footer">
+        <div class="footer-list">
+            <a href="{{ url_for('impressum') }}" class="footer_decorastion" style="text-decoration: none;">Impressum</a>
+            <a href="{{ url_for('privacy') }}" class="footer_decorastion"
+                style="text-decoration: none;">Datenschutzerklärung</a>
+        </div>
+        <small>©DiviMate</small>
+    </div>
+
+    <style>
+        .legal-content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .legal-content h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .legal-content h2 {
+            color: #555;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .legal-content h3 {
+            color: #666;
+            margin-top: 20px;
+        }
+
+        .legal-content p {
+            margin-bottom: 15px;
+        }
+
+        .legal-content section {
+            margin-bottom: 40px;
+        }
+
+        .legal-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .legal-content li {
+            margin-bottom: 5px;
+        }
+    </style>
+</body>
+
+</html>

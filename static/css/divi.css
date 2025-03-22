@@ -1,0 +1,357 @@
+body {
+  font-size: 16px;
+  font-family: "Roboto", serif;
+  max-width: 1024px;
+  margin: 0 auto;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+main {
+  display: flex;
+  flex-direction: column;  /* 縦方向に並べる */
+  align-items: center;      /* 中央寄せ */
+  justify-content: center;  /* 垂直方向も中央に */
+  min-height: 100vh;        /* 画面の高さいっぱいにする */
+  max-width: 1024px;        /* 最大幅を指定 */
+  margin: 0 auto;           /* 左右の中央寄せ */
+  padding: 20px;            /* 余白を追加 */
+  box-sizing: border-box;
+}
+
+header {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  background-color: #8DC7E0;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-title {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 32px;
+  color: #fff;
+}
+
+.group-name {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.split-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #8DC7E0;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #67a7c0;
+}
+
+#recipient-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+#recipient-list label {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+#recipient-list input {
+  width: auto;
+  margin-right: 10px;
+}
+
+#shareable-url-container {
+  margin-top: 30px;
+  padding: 15px;
+  border-top: 1px solid #eee;
+  width: 100%;
+}
+
+.share-link-container {
+  display: flex;
+  align-items: center;
+}
+
+#shareable-link {
+  background-color: #f5f5f5;
+  text-align: center;
+  margin-right: 10px;
+  flex-grow: 1;
+}
+
+#copy-btn {
+  width: auto;
+  padding: 10px 15px;
+  background-color: #4CAF50;
+}
+
+#copy-btn:hover {
+  background-color: #3d8b40;
+}
+
+/* トランザクションリスト */
+.transactions-container, .settlement-container {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.transactions-container h3, .settlement-container h3 {
+  color: #555;
+  border-bottom: 2px solid #8DC7E0;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+#result-list, #summary-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* トランザクションアイテム */
+.transaction-item {
+  background: #e0f7fa;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.transaction-details {
+  flex-grow: 1;
+}
+
+.transaction-header {
+  margin-bottom: 8px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.transaction-date {
+  color: #666;
+  font-size: 14px;
+}
+
+.transaction-amount {
+  font-weight: bold;
+  color: #0277bd;
+}
+
+.transaction-body {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+.transaction-splits {
+  background: rgba(255,255,255,0.6);
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.transaction-split {
+  padding: 3px 0;
+  color: #444;
+}
+
+.delete-transaction {
+  background-color: #ff5252;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.delete-transaction:hover {
+  background-color: #e53935;
+}
+
+/* 決済アイテム */
+.settlement-item {
+  background: #f1f8e9;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.settlement-from {
+  font-weight: bold;
+  color: #558b2f;
+}
+
+.settlement-arrow {
+  margin: 0 10px;
+  color: #666;
+}
+
+.settlement-to {
+  font-weight: bold;
+  color: #0277bd;
+}
+
+.settlement-amount {
+  margin-left: auto;
+  font-weight: bold;
+  color: #f57c00;
+}
+
+.settlement-none {
+  color: #888;
+  font-style: italic;
+  justify-content: center;
+  background-color: #f5f5f5;
+}
+
+.settlement-error {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.empty-message {
+  text-align: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+#add-transaction-btn {
+  background-color: #4CAF50;
+  margin-top: 10px;
+  font-size: 16px;
+  padding: 12px;
+}
+
+#add-transaction-btn:hover {
+  background-color: #3d8b40;
+}
+
+/* ===== レスポンシブ対応 ===== */
+
+/* 🌟 スマホ (320px ~ 480px) */
+@media (max-width: 480px) {
+  .split-container {
+    width: 100%; /* スマホではフル幅 */
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 28px; /* ヘッダーのタイトルを小さく */
+  }
+
+  input, select, button {
+    font-size: 14px;
+  }
+
+  .transaction-header {
+    flex-direction: column;
+  }
+  
+  .transaction-amount {
+    margin-top: 5px;
+  }
+  
+  .share-link-container {
+    flex-direction: column;
+  }
+  
+  #copy-btn {
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
+/* 🌟 タブレット (481px ~ 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .split-container {
+    width: 90%; /* 画面の90%の幅に */
+  }
+}
+
+/* 🌟 PC向け (769px ~ 1024px) */
+@media (min-width: 769px) {
+  .split-container {
+    width: 80%; /* 画面の80%の幅に */
+  }
+}
+
+.qr-code-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+#qrcode {
+  margin: 10px 0;
+}
+
+.qr-instruction {
+  color: #666;
+  font-size: 14px;
+  margin: 5px 0;
+  text-align: center;
+}
