@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DiviMate</title>
 
-  <meta name=”robots” content=”noindex”>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../static/img/favicon-32x32.png" type="image/png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,29 +148,6 @@
         recipientLabel.appendChild(document.createTextNode(member));
         recipientList.appendChild(recipientLabel);
       });
-
-      // 支払者が変更されたときに、支払者を受取者リストから除外する
-      payerSelect.onchange = () => {
-        const currentPayer = payerSelect.value;
-        // すべての受取者チェックボックスを取得
-        const recipientCheckboxes = document.querySelectorAll("input[name='recipient']");
-
-        // 各チェックボックスに対して処理
-        recipientCheckboxes.forEach(checkbox => {
-          const label = checkbox.parentElement;
-
-          // 支払者と同じ値を持つチェックボックスを非表示にする
-          if (checkbox.value === currentPayer) {
-            label.style.display = "none";
-            checkbox.checked = false; // チェックを外す
-          } else {
-            label.style.display = "inline-block"; // それ以外は表示
-          }
-        });
-      };
-
-      // 初期表示時に支払者を受取者リストから除外
-      payerSelect.dispatchEvent(new Event('change'));
 
       // 目的選択の処理
       const purposeSelect = document.getElementById("purpose");
