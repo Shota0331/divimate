@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DiviMate</title>
 
-  <meta name="robots" content="noindex">
   <link rel="icon" href="../static/img/favicon-32x32.png" type="image/png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -199,7 +198,7 @@
           customPurposeInput.style.display = "none";
           document.querySelectorAll("input[name='recipient']:checked").forEach(cb => cb.checked = false);
         } catch (error) {
-          alert(error.message || "取引の保存に失敗しました。");
+          alert(error.message || "Failed to save transaction.");
         }
       };
 
@@ -332,15 +331,15 @@
             });
           }
         } catch (error) {
-          alert(error.message || "清算結果の計算に失敗しました。");
-          summaryList.innerHTML = "<li class='settlement-error'>⚠️ エラーが発生しました。</li>";
+          alert(error.message || "Failed to calculate clearing results.");
+          summaryList.innerHTML = "<li class='settlement-error'>⚠️ Error.</li>";
         }
       }
 
       // 共有リンクの処理
       document.getElementById("copy-btn").onclick = () => {
         if (!groupUrl) {
-          alert("グループのURLが保存されていません");
+          alert("The URL of the group is not saved.");
           return;
         }
         // 現在のページのURLをそのまま使用
@@ -375,8 +374,8 @@
             img.style.margin = '10px auto';
           }
         } catch (e) {
-          console.error('QRコードの生成に失敗しました:', e);
-          qrDiv.innerHTML = '<p>QRコードを生成できませんでした</p>';
+          console.error('QR code generation failed.:', e);
+          qrDiv.innerHTML = '<p>QR code could not be generated.</p>';
         }
       }
 
@@ -395,7 +394,7 @@
           updateTransactionList();
           calculateFinalBalances();
         } catch (error) {
-          alert(error.message || "取引データの読み込みに失敗しました。");
+          alert(error.message || "Failed to load transaction data.");
         }
       }
 
@@ -404,7 +403,7 @@
 
       // 現在のページのURLをそのまま共有リンクとして表示
       const currentUrl = window.location.href;
-      shareableLink.value = currentUrl || "グループのURLが保存されていません";
+      shareableLink.value = currentUrl || "The URL of the group is not saved.";
 
       // QRコードを生成
       generateQRCode(currentUrl);

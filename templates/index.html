@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DiviMate</title>
-  <meta name="description" content="Easy expense splitting app">
-  <meta name="robots" content="noindex">
+  <meta name="description" content="Super convenient! DiviMate is an app that makes calculating the split a breeze – no sign-up required! It uses a smart algorithm to instantly create groups, track payments and show you who pays how much to whom. And the best part? No sign-up required! It's so easy to use. Just create a group, track your payments, and see who's paying what to whom. You can even share via QR code and access it from any device!">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
@@ -134,7 +133,7 @@
               button.id = `remove-member-btn-${index + 1}`;
             });
           } else {
-            alert('少なくとも1人のメンバーが必要です');
+            alert('At least one member is required.');
           }
         };
 
@@ -154,7 +153,7 @@
           const name = input.value.trim();
           if (name !== '' && duplicates.includes(name)) {
             input.style.borderColor = 'red';
-            input.title = '同じ名前のメンバーがすでに存在します';
+            input.title = 'A member with the same name already exists.';
           } else {
             input.style.borderColor = '';
             input.title = '';
@@ -182,7 +181,7 @@
                 button.id = `remove-member-btn-${index + 1}`;
               });
             } else {
-              alert('少なくとも1人のメンバーが必要です');
+              alert('At least one member is required.');
             }
           };
         });
@@ -203,7 +202,7 @@
         const uniqueMembers = new Set(members);
         if (uniqueMembers.size !== members.length) {
           e.preventDefault(); // フォーム送信をキャンセル
-          alert('同じ名前のメンバーが複数登録されています。メンバー名はそれぞれ異なる名前にしてください。');
+          alert('Several members with the same name are registered. Each member name must be different.');
           return false;
         }
         return true;
