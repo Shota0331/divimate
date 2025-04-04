@@ -10,8 +10,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///group_transactions.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-CORS(app, resources={r"/*": {"origins": "http://127.0.0.1:5501"}})
-
+CORS(app, resources={r"/*": {"origins": ["https://divi-mate.com", "http://127.0.0.1:5501"]}})
 db = SQLAlchemy(app)
 
 
