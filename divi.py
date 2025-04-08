@@ -240,6 +240,14 @@ def init_db():
         db.create_all()
     return "Database initialized!"
 
+# 追加部分（reset_dbエンドポイント）
+@app.route("/reset_db")
+def reset_db():
+    with app.app_context():
+        db.drop_all()  # 既存のテーブルを削除
+        db.create_all()  # 新しくテーブルを作成
+    return "Database has been reset!"
+
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()  # データベーステーブルの作成
