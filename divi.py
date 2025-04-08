@@ -233,6 +233,12 @@ def _corsify_actual_response(response, status=200):
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response, status
 
+# これを追加！
+@app.route("/init_db")
+def init_db():
+    with app.app_context():
+        db.create_all()
+    return "Database initialized!"
 
 if __name__ == "__main__":
     with app.app_context():
