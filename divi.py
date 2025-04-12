@@ -235,11 +235,11 @@ def _corsify_actual_response(response, status=200):
     return response, status
 
 # これを追加！
-#@app.route("/init_db")
-#def init_db():
-#    with app.app_context():
-#        db.create_all()
-#    return "Database initialized!"
+@app.route("/init_db")
+def init_db():
+    with app.app_context():
+        db.create_all()
+    return "Database initialized!"
 
 # 追加部分（reset_dbエンドポイント）
 #@app.route("/reset_db")
